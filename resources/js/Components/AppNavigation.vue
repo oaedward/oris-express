@@ -1,18 +1,17 @@
 <script setup lang="ts">
-import { RouterLink } from "vue-router";
 import { Menu } from "lucide-vue-next";
-import { Button } from "../ui/button";
+import { Link } from "@inertiajs/vue3";
+import { Button } from "@/Components/ui/button";
 
 import {
     NavigationMenu,
     NavigationMenuContent,
     NavigationMenuItem,
-    NavigationMenuLink,
     NavigationMenuList,
     NavigationMenuTrigger,
     navigationMenuTriggerStyle,
     NavigationList,
-} from "@/components/ui/navigation-menu";
+} from "@/Components/ui/navigation-menu";
 
 import {
     Sheet,
@@ -21,32 +20,31 @@ import {
     SheetHeader,
     SheetTitle,
     SheetTrigger,
-} from "@/components/ui/sheet";
+} from "@/Components/ui/sheet";
 
 import {
     Accordion,
     AccordionContent,
     AccordionItem,
     AccordionTrigger,
-} from "@/components/ui/accordion";
+} from "@/Components/ui/accordion";
 
-// const side = 'left' as const
-
-const components: { title: string; href: string; description: string }[] = [
+const components: { title: string; href: string }[] = [
     {
         title: "Education",
-        href: "/education",
-        description: "Education Services",
+        href: "services",
+    },
+    {
+        title: "Business Development",
+        href: "services",
     },
     {
         title: "Biomedical",
-        href: "/services",
-        description: "Biomedical Services",
+        href: "services",
     },
     {
         title: "Handyman",
-        href: "/services",
-        description: "Handyman Services",
+        href: "services",
     },
 ];
 </script>
@@ -56,46 +54,41 @@ const components: { title: string; href: string; description: string }[] = [
         <NavigationMenu class="hidden lg:block">
             <NavigationMenuList>
                 <NavigationMenuItem>
-                    <NavigationMenuLink
-                        href="/"
+                    <Link
+                        :href="route('home')"
                         :class="navigationMenuTriggerStyle()"
+                        >Home</Link
                     >
-                        Home
-                    </NavigationMenuLink>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                    <NavigationMenuLink
-                        href="/about"
+                    <Link
+                        :href="route('home')"
                         :class="navigationMenuTriggerStyle()"
+                        >About</Link
                     >
-                        About
-                    </NavigationMenuLink>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
                     <NavigationMenuTrigger>Services</NavigationMenuTrigger>
                     <NavigationMenuContent>
                         <ul
-                            class="grid w-[400px] gap-3 p-4 md:w-[300px] md:grid-cols-1 lg:w-[400px]"
+                            class="grid w-[48px] gap-3 p-2 md:w-[48px] md:grid-cols-1 lg:w-[200px]"
                         >
                             <NavigationList
                                 v-for="component in components"
                                 :key="component.title"
                                 :title="component.title"
-                                :href="component.href"
+                                :href="route(component.href)"
                                 class=""
-                            >
-                                {{ component.description }}
-                            </NavigationList>
+                            />
                         </ul>
                     </NavigationMenuContent>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                    <NavigationMenuLink
-                        href="/contact"
+                    <Link
+                        :href="route('home')"
                         :class="navigationMenuTriggerStyle()"
+                        >Contact</Link
                     >
-                        Contact
-                    </NavigationMenuLink>
                 </NavigationMenuItem>
             </NavigationMenuList>
         </NavigationMenu>
@@ -117,24 +110,24 @@ const components: { title: string; href: string; description: string }[] = [
                 <SheetDescription>
                     <div class="flex flex-col gap-1">
                         <div class="border-b py-2">
-                            <router-link to="/">
+                            <Link :href="route('home')">
                                 <Button
                                     variant="ghost"
                                     class="w-full justify-start"
                                 >
                                     Home
                                 </Button>
-                            </router-link>
+                            </Link>
                         </div>
                         <div class="border-b py-2">
-                            <router-link to="/about">
+                            <Link :href="route('home')">
                                 <Button
                                     variant="ghost"
                                     class="w-full justify-start"
                                 >
                                     About
                                 </Button>
-                            </router-link>
+                            </Link>
                         </div>
                         <div class="">
                             <Accordion
@@ -150,16 +143,16 @@ const components: { title: string; href: string; description: string }[] = [
                                         <div
                                             class="flex flex-col gap-1 px-4 py-1"
                                             v-for="component in components"
-                                            :key="component.description"
+                                            :key="component.title"
                                         >
-                                            <router-link :to="component.href">
+                                            <Link :href="component.href">
                                                 <Button
                                                     variant="ghost"
                                                     class="w-full justify-start"
                                                 >
                                                     {{ component.title }}
                                                 </Button>
-                                            </router-link>
+                                            </Link>
                                         </div>
                                     </AccordionContent>
                                 </AccordionItem>
@@ -167,14 +160,14 @@ const components: { title: string; href: string; description: string }[] = [
                         </div>
 
                         <div class="border-b py-2">
-                            <router-link to="/contact">
+                            <Link :href="route('home')">
                                 <Button
                                     variant="ghost"
                                     class="w-full justify-start"
                                 >
                                     Contact
                                 </Button>
-                            </router-link>
+                            </Link>
                         </div>
                     </div>
                 </SheetDescription>
