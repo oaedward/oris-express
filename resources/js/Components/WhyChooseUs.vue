@@ -1,11 +1,11 @@
 <template>
-    <section class="min-h-screen">
+    <section class="py-16 md:py-20 bg-accent min-h-screen">
         <div
             class="container flex flex-col gap-8 items-center justify-center px-6 md:px-10 lg:text-left"
         >
             <SectionHeader
-                title="Core Values"
-                subTitle="We seek to I.M.P.R.E.S.S"
+                title="Why Choose Us"
+                subTitle="What sets us apart"
             />
             <div class="space-y-6 border-l-2 border-dashed">
                 <ValueCard
@@ -42,7 +42,7 @@
 </template>
 
 <script setup lang="ts">
-import SectionHeader from "./SectionHeader.vue";
+import SectionHeader from "@/Components/SectionHeader.vue";
 import ValueCard from "./ValueCard.vue";
 </script>
 

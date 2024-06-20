@@ -2,9 +2,11 @@
 import { Head } from "@inertiajs/vue3";
 import MainLayout from "@/Layouts/MainLayout.vue";
 import HeroSection from "@/Components/HeroSection.vue";
-import AboutSection from "@/Components/AboutSection.vue";
-import CoreValuesSection from "@/Components/CoreValuesSection.vue";
+import DepartmentSection from "@/Components/DepartmentSection.vue";
+import AboutSummary from "@/Components/AboutSummary.vue";
 import ServiceSection from "@/Components/ServiceSection.vue";
+import WhyChooseUs from "@/Components/WhyChooseUs.vue";
+import ContactSection from "@/Components/ContactSection.vue";
 </script>
 
 <template>
@@ -12,10 +14,11 @@ import ServiceSection from "@/Components/ServiceSection.vue";
         <Head title="Oris Express" />
         <div class="dark:bg-gray-900 dark:text-white/50">
             <HeroSection id="hero" />
-            <AboutSection id="about" />
-            <CoreValuesSection />
+            <AboutSummary id="about" />
+            <DepartmentSection id="department" />
             <ServiceSection id="services" />
-            <ContactSetion id="contact" />
+            <WhyChooseUs />
+            <ContactSection id="contact" />
         </div>
     </MainLayout>
 </template>

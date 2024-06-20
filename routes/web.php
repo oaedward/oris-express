@@ -18,9 +18,25 @@ Route::get('/', function () {
     return Inertia::render('Welcome');
 })->name('home');
 
+Route::get('/about', function () {
+    return Inertia::render('About');
+})->name('about');
+
 Route::get('/services', function () {
     return Inertia::render('Services');
 })->name('services');
+
+Route::get('/services/consult', function () {
+    return Inertia::render('Consult');
+})->name('consult');
+
+Route::get('/services/engineering', function () {
+    return Inertia::render('Engineering');
+})->name('engineering');
+
+Route::get('/contact', function () {
+    return Inertia::render('Contact');
+})->name('contact');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');

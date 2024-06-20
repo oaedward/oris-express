@@ -5,22 +5,18 @@
                 &copy; {{ date }} Oris Express. All rights reserved
             </p>
             <div
-                class="flex items-center justify-center pt-5 sm:justify-start sm:pt-0"
+                class="flex items-center gap-2 justify-center pt-5 sm:justify-start sm:pt-0 text-white"
             >
                 <a href="/">
-                    <i
-                        class="bx bxl-facebook-square text-2xl text-white hover:text-yellow"
-                    ></i>
+                    <!-- <Instagram /> -->
+                    <Icon icon="fa6-brands:x-twitter" />
                 </a>
-                <a href="/" class="pl-4">
-                    <i
-                        class="bx bxl-twitter text-2xl text-white hover:text-yellow"
-                    ></i>
+                <a href="/">
+                    <!-- <Twitter /> -->
+                    <Icon icon="fa6-brands:instagram" />
                 </a>
-                <a href="/" class="pl-4">
-                    <i
-                        class="bx bxl-dribbble text-2xl text-white hover:text-yellow"
-                    ></i>
+                <a href="/">
+                    <Icon icon="fa6-brands:whatsapp" />
                 </a>
             </div>
         </div>
@@ -29,6 +25,7 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
+import { Icon } from "@iconify/vue";
 
 const date = ref(new Date().getFullYear());
 </script>

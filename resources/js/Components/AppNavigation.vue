@@ -5,12 +5,9 @@ import { Button } from "@/Components/ui/button";
 
 import {
     NavigationMenu,
-    NavigationMenuContent,
     NavigationMenuItem,
     NavigationMenuList,
-    NavigationMenuTrigger,
     navigationMenuTriggerStyle,
-    NavigationList,
 } from "@/Components/ui/navigation-menu";
 
 import {
@@ -21,32 +18,6 @@ import {
     SheetTitle,
     SheetTrigger,
 } from "@/Components/ui/sheet";
-
-import {
-    Accordion,
-    AccordionContent,
-    AccordionItem,
-    AccordionTrigger,
-} from "@/Components/ui/accordion";
-
-const components: { title: string; href: string }[] = [
-    {
-        title: "Education",
-        href: "services",
-    },
-    {
-        title: "Business Development",
-        href: "services",
-    },
-    {
-        title: "Biomedical",
-        href: "services",
-    },
-    {
-        title: "Handyman",
-        href: "services",
-    },
-];
 </script>
 
 <template>
@@ -62,30 +33,21 @@ const components: { title: string; href: string }[] = [
                 </NavigationMenuItem>
                 <NavigationMenuItem>
                     <Link
-                        :href="route('home')"
+                        :href="route('about')"
                         :class="navigationMenuTriggerStyle()"
                         >About</Link
                     >
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                    <NavigationMenuTrigger>Services</NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                        <ul
-                            class="grid w-[48px] gap-3 p-2 md:w-[48px] md:grid-cols-1 lg:w-[200px]"
-                        >
-                            <NavigationList
-                                v-for="component in components"
-                                :key="component.title"
-                                :title="component.title"
-                                :href="route(component.href)"
-                                class=""
-                            />
-                        </ul>
-                    </NavigationMenuContent>
+                    <Link
+                        :href="route('services')"
+                        :class="navigationMenuTriggerStyle()"
+                        >Departments</Link
+                    >
                 </NavigationMenuItem>
                 <NavigationMenuItem>
                     <Link
-                        :href="route('home')"
+                        :href="route('contact')"
                         :class="navigationMenuTriggerStyle()"
                         >Contact</Link
                     >
@@ -120,7 +82,7 @@ const components: { title: string; href: string }[] = [
                             </Link>
                         </div>
                         <div class="border-b py-2">
-                            <Link :href="route('home')">
+                            <Link :href="route('about')">
                                 <Button
                                     variant="ghost"
                                     class="w-full justify-start"
@@ -129,38 +91,18 @@ const components: { title: string; href: string }[] = [
                                 </Button>
                             </Link>
                         </div>
-                        <div class="">
-                            <Accordion
-                                type="single"
-                                collapsible
-                                class="w-full justify-start"
-                            >
-                                <AccordionItem value="item-1">
-                                    <AccordionTrigger class="px-4"
-                                        >Services</AccordionTrigger
-                                    >
-                                    <AccordionContent>
-                                        <div
-                                            class="flex flex-col gap-1 px-4 py-1"
-                                            v-for="component in components"
-                                            :key="component.title"
-                                        >
-                                            <Link :href="component.href">
-                                                <Button
-                                                    variant="ghost"
-                                                    class="w-full justify-start"
-                                                >
-                                                    {{ component.title }}
-                                                </Button>
-                                            </Link>
-                                        </div>
-                                    </AccordionContent>
-                                </AccordionItem>
-                            </Accordion>
-                        </div>
-
                         <div class="border-b py-2">
-                            <Link :href="route('home')">
+                            <Link :href="route('services')">
+                                <Button
+                                    variant="ghost"
+                                    class="w-full justify-start"
+                                >
+                                    Departments
+                                </Button>
+                            </Link>
+                        </div>
+                        <div class="border-b py-2">
+                            <Link :href="route('contact')">
                                 <Button
                                     variant="ghost"
                                     class="w-full justify-start"

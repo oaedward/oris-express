@@ -1,37 +1,61 @@
 <template>
-    <div class="group rounded px-2 py-12 shadow hover:bg-primary">
-        <div class="mx-auto h-24 w-24 text-center xl:h-28 xl:w-28">
-            <div class="hidden group-hover:block">
-                <img :src="image" :alt="alt" />
-            </div>
-            <div class="block group-hover:hidden">
-                <img
-                    src="/assets/img/icon-development-black.svg"
-                    alt="development icon"
-                />
-            </div>
+    <div
+        class="flex flex-col w-full max-w-sm overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800"
+    >
+        <img
+            class="object-cover object-center w-full h-56"
+            :src="image"
+            :alt="alt"
+        />
+
+        <div class="flex items-center px-6 py-1 bg-primary">
+            <Icon :icon="icon" color="white" width="18" />
+
+            <h1 class="mx-3 text-sm font-light text-white">
+                {{ category }}
+            </h1>
         </div>
-        <div class="text-center">
-            <h3
-                class="pt-8 text-lg font-semibold text-primary group-hover:text-accent lg:text-xl"
+
+        <div class="px-6 py-4">
+            <h1
+                class="text-xl mb-2 font-semibold text-gray-800 dark:text-white"
             >
                 {{ title }}
-            </h3>
+            </h1>
+
             <p
-                class="text-gray-600 pt-4 text-sm group-hover:text-white md:text-base"
+                class="line-clamp-4 text-gray-700 text-sm font-light dark:text-gray-400"
             >
                 {{ description }}
             </p>
+        </div>
+        <div class="p-2 flex justify-end">
+            <Link :href="route(link)">
+                <Button variant="ghost" size="icon" class="text-sm">
+                    <Icon
+                        icon="material-symbols:arrow-circle-right-outline-rounded"
+                        width="20"
+                        class="text-primary"
+                    />
+                </Button>
+            </Link>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
+import { Link } from "@inertiajs/vue3";
+import { Icon } from "@iconify/vue";
+import { Button } from "@/Components/ui/button";
+
 defineProps<{
     title: string;
     description: string;
     image: string;
     alt: string;
+    category: string;
+    icon: string;
+    link: string;
 }>();
 </script>
 

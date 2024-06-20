@@ -1,10 +1,5 @@
 <template>
-    <div>
-        <!-- <h2
-            class="text-[3.0rem] font-bold leading-[4rem] tracking-tight text-black text-center sm:text-[3.5rem] lg:text-[3.5rem]"
-        >
-            Contact Oris Express
-        </h2> -->
+    <div :class="props.divClass">
         <h1
             :class="
                 cn(
@@ -37,6 +32,7 @@ const props = defineProps<{
     subTitle: string;
     class?: HTMLAttributes["class"];
     classSub?: HTMLAttributes["class"];
+    divClass?: HTMLAttributes["class"];
 }>();
 </script>
 
